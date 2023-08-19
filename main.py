@@ -9,7 +9,7 @@ pygame.init()
 
 # Set up the screen
 screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption("Pong")
+pygame.display.set_caption("Kevin's Game of Pong")
 
 # Set up the game objects
 ball = pygame.Rect(screen_width/2-15, screen_height/2-15, 30, 30)
@@ -51,7 +51,7 @@ while True:
             ball_speed[0] *= -1
             ball.x = screen_width/2-15
             ball.y = screen_height/2-15
-        if ball.right >= screen_width:
+        elif ball.right >= screen_width:
             score1 += 1
             ball_speed[0] *= -1
             ball.x = screen_width/2-15
@@ -60,6 +60,10 @@ while True:
         # Check for collision with the players
         if ball.colliderect(player1) or ball.colliderect(player2):
             ball_speed[0] *= -1
+            if ball.left < player1.right and ball_speed[0] < 0:
+                ball.left = player1.right
+            if ball.right > player2.left and ball_speed[0] > 0:
+                ball.right = player2.left
 
         # Move the paddles
         keys = pygame.key.get_pressed()
