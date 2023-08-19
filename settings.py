@@ -1,5 +1,7 @@
 # settings.py
 
+import pygame
+
 # Screen settings
 screen_width = 800
 screen_height = 600
@@ -17,3 +19,8 @@ time_step = 0.02  # seconds
 # Font settings
 font_name = 'Arial'
 font_size = 64
+
+# Sound settings
+# Initialize Pygame mixer
+pygame.mixer.init()
+collision_sound = pygame.mixer.Sound("bonk-sound-effect.mp3")
