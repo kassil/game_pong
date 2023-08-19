@@ -46,29 +46,38 @@ while True:
         # Check for collision with the walls
         if ball.top <= 0 or ball.bottom >= screen_height:
             ball_speed[1] *= -1
-            collision_sound.play()
+            wall_collision_sound.play()
         if ball.left <= 0:
             score2 += 1
             ball_speed[0] *= -1
             ball.x = screen_width/2-15
             ball.y = screen_height/2-15
-            collision_sound.play()
+            wall_collision_sound.play()
         if ball.right >= screen_width:
             score1 += 1
             ball_speed[0] *= -1
             ball.x = screen_width/2-15
             ball.y = screen_height/2-15
-            collision_sound.play()
+            wall_collision_sound.play()
 
         # Check for collision with the players
         if ball.colliderect(player1) or ball.colliderect(player2):
+            player_collision_sound.play()
             ball_speed[0] *= -1
             if ball.left < player1.right and ball_speed[0] < 0:
+                # Calculate the angle between the ball's center and the point of impact on the paddle
+                y_distance = ball.centery - player1.centery
+                max_distance = player1.height / 2
+                angle = y_distance / max_distance
+                ball_speed[1] = angle * ball_speed[0]
                 ball.left = player1.right
-                collision_sound.play()
             if ball.right > player2.left and ball_speed[0] > 0:
+                # Calculate the angle between the ball's center and the point of impact on the paddle
+                y_distance = ball.centery - player2.centery
+                max_distance = player2.height / 2
+                angle = y_distance / max_distance
+                ball_speed[1] = angle * ball_speed[0]
                 ball.right = player2.left
-                collision_sound.play()
 
         # Move the paddles
         keys = pygame.key.get_pressed()
