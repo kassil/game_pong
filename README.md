@@ -2,6 +2,8 @@
 
 This is a simplified version of the classic Pong game using Python and Pygame. The game features two paddles, a ball, and a simple scoring system. The objective of the game is to hit the ball with the paddle and score points by getting the ball past the opponent's paddle.
 
+![Screenshot 1](./screenshots/pong-screenshot-1.png)
+
 ## Installation
 
 1. Install Python 3.6 or later on your system.
