@@ -23,5 +23,5 @@ font_size = 64
 # Sound settings
 # Initialize Pygame mixer
 pygame.mixer.init()
-wall_collision_sound = pygame.mixer.Sound("Bounce-SoundBible.com-12678623.mp3")
-player_collision_sound = pygame.mixer.Sound("bonk-sound-effect.mp3")
+wall_collision_sound = pygame.mixer.Sound("media/Bounce-SoundBible.com-12678623.mp3")
+player_collision_sound = pygame.mixer.Sound("media/bonk-sound-effect.mp3")
