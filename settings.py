@@ -9,9 +9,15 @@ bg_color = (50, 50, 50)
 
 # Ball settings
 ball_speed = [400, 400]
+ball_color = (200, 200, 0)  # Yellow color
+ball_size = 20
 
 # Paddle settings
-paddle_speed = 800
+paddle_margin = 20  # Distance from wall
+paddle_width = 20
+paddle_height = 100
+paddle_color = (210, 210, 210)
+paddle_speed = 500
 
 # Time settings
 time_step = 0.02  # seconds
